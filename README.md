@@ -1,6 +1,8 @@
 # 507-streamlit-demo
 Streamlit demo 2024 fall using github codespaces 
 
+I changed the csv link to read all the data in the dataset.
+
 I put the number of all the students and the number of students per state in the data set and put it in a chart.
 I also counted the number of times each state appeared distinct.
 

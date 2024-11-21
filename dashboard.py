@@ -70,3 +70,17 @@ st.dataframe(statewise_sum)
 st.bar_chart(statewise_sum, x='State', y='Total Students', use_container_width=True)
 
 
+
+# Count the number of times each state appears in the data
+state_counts = df['state'].value_counts().reset_index()
+
+# Rename columns for clarity
+state_counts.columns = ['State', 'Count']
+
+# Display the data as a table
+st.subheader("Number of Times Each State Appears in the Data")
+st.dataframe(state_counts)
+
+# Optional: Display as a bar chart
+st.bar_chart(state_counts, x='State', y='Count', use_container_width=True)
+

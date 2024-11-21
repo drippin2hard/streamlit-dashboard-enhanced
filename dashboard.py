@@ -53,4 +53,20 @@ st.bar_chart(
 
 col4 = st.columns(1)  # Create the column layout
 total_students = df['student_count'].sum()  # Calculate the sum of the column
-st.metric("Sum of Students", total_students)  # Display the metric
+st.metric("Sum of Students In All States Combined", total_students)  # Display the metric
+
+
+
+statewise_sum = df.groupby('state')['student_count'].sum().reset_index()
+
+# Rename columns for clarity
+statewise_sum.columns = ['State', 'Total Students']
+
+# Display the data as a table in the dashboard
+st.subheader("Sum of Students per State")
+st.dataframe(statewise_sum)
+
+# Optional: Display as a bar chart
+st.bar_chart(statewise_sum, x='State', y='Total Students', use_container_width=True)
+
+

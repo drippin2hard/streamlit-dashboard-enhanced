@@ -51,6 +51,10 @@ st.bar_chart(
     y="Remote",
 )
 
+
+table = table.reset_index()
+table.columns
+
 col4 = st.columns(1)  # Create the column layout
 total_students = df['student_count'].sum()  # Calculate the sum of the column
 st.metric("Sum of Students In All States Combined", total_students)  # Display the metric
@@ -70,6 +74,10 @@ st.dataframe(statewise_sum)
 st.bar_chart(statewise_sum, x='State', y='Total Students', use_container_width=True)
 
 
+
+
+table = table.reset_index()
+table.columns
 
 # Count the number of times each state appears in the data
 state_counts = df['state'].value_counts().reset_index()

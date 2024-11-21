@@ -7,7 +7,7 @@ st.subheader("We are going to go through a couple different examples of loading 
 st.text("""In this streamlit dashboard, we are going to focus on some recently released school learning modalities data from the NCES, for the years of 2021.""")
 
 # ## https://healthdata.gov/National/School-Learning-Modalities-2020-2021/a8v3-a3m3/about_data
-df = pd.read_csv("https://healthdata.gov/resource/a8v3-a3m3.csv?$limit=500000") ## first 1k 
+df = pd.read_csv("https://healthdata.gov/resource/a8v3-a3m3.csv?$limit=500000") ## changed to 500k to read all data 
 
 ## data cleaning 
 df['week_recoded'] = pd.to_datetime(df['week'])
@@ -21,7 +21,7 @@ col1.metric("Columns", df.shape[1])
 col2.metric("Rows", len(df))
 col3.metric("Number of unique districts/schools:", df['district_name'].nunique())
 
-## exposing first 1k of NCES 20-21 data
+
 st.dataframe(df)
 
 
@@ -50,3 +50,7 @@ st.bar_chart(
     x="week",
     y="Remote",
 )
+
+col4 = st.columns(1)  # Create the column layout
+total_students = df['student_count'].sum()  # Calculate the sum of the column
+st.metric("Sum of Students", total_students)  # Display the metric

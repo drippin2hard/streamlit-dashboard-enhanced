@@ -7,7 +7,7 @@ st.subheader("We are going to go through a couple different examples of loading 
 st.text("""In this streamlit dashboard, we are going to focus on some recently released school learning modalities data from the NCES, for the years of 2021.""")
 
 # ## https://healthdata.gov/National/School-Learning-Modalities-2020-2021/a8v3-a3m3/about_data
-df = pd.read_csv("https://healthdata.gov/resource/a8v3-a3m3.csv?$limit=50000") ## first 1k 
+df = pd.read_csv("https://healthdata.gov/resource/a8v3-a3m3.csv?$limit=500000") ## first 1k 
 
 ## data cleaning 
 df['week_recoded'] = pd.to_datetime(df['week'])

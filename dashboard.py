@@ -52,11 +52,10 @@ st.bar_chart(
 )
 
 
-table = table.reset_index()
-table.columns
 
 col4 = st.columns(1)  # Create the column layout
 total_students = df['student_count'].sum()  # Calculate the sum of the column
+table.columns
 st.metric("Sum of Students In All States Combined", total_students)  # Display the metric
 
 
@@ -76,15 +75,13 @@ st.bar_chart(statewise_sum, x='State', y='Total Students', use_container_width=T
 
 
 
-table = table.reset_index()
-table.columns
 
 # Count the number of times each state appears in the data
 state_counts = df['state'].value_counts().reset_index()
 
 # Rename columns for clarity
 state_counts.columns = ['State', 'Count']
-
+table.columns
 # Display the data as a table
 st.subheader("Number of Times Each State Appears in the Data")
 st.dataframe(state_counts)
